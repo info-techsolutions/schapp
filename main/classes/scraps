@@ -1,0 +1,158 @@
+        $("#admission").on("submit", function(evt){
+            evt.preventDefault();
+//            $(this).hide();   
+//            $(".message").show();
+//            window.location.assign("register.html")
+            
+        if (($('#firstname').val()) === '') {
+              $( "div#message_firstname" ).text( "Please Enter firstname" ).show().fadeOut( 1000 );
+              $('#firstname').focus();
+            return false;
+        }
+        if (($('#person_number').val()) === '') {
+                $( "div#message_person_number" ).text( "Please Enter Admission number" ).show().fadeOut( 1000 );
+                $('#person_number').focus();
+            return false;
+        }
+        if (($('#firstname').val()) === '') {
+                $( "div#message_lastname" ).text( "Please your firstname" ).show().fadeOut( 1000 );
+                $('#firstname').focus();
+            return false;
+        }
+            if (($('#lastname').val()) === '') {
+                $( "div#message_lastname" ).text( "Please your lastname" ).show().fadeOut( 1000 );
+                $('#lastname').focus();
+            return false;
+        }
+            if (($('#phone').val()) === '') {
+                $( "div#message_phone" ).text( "Please provide your phone number" ).show().fadeOut( 1000 );
+                $('#phone').focus();
+            return false;
+        }
+            if (($('#address').val()) === '') {
+                $( "div#message_address" ).text( "Please let's know your address" ).show().fadeOut( 1000 );
+                $('#address').focus();
+            return false;
+        }
+            if ( $("select#gender" ).val() === '--choose--') {
+                $( "div#message_gender" ).text( "Please let's know your gender" ).show().fadeOut( 1000 );
+                $('select#gender').focus();
+            return false;
+        }
+//             var form_data = $(this).serialize();
+            var form_data = new FormData(this);
+            var form_url = $(this).attr("action");
+            var form_method = $(this).attr("method").toUpperCase();
+            
+            
+//             $( "#message_save" ).text( "loading...." ).show();
+            
+            $.ajax({
+                type: form_method,
+                url: form_url,
+                data: form_data,
+                processData: false,
+                contentType: false,
+                cache: false,
+//                data: form_data,
+                beforeSend: function(){
+                    $("#save").replaceWith('<button class="btn widget uib_w_10 d-margins btn-sm btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" disabled>loading.....</button>');
+                   // $("#save").attr("disabled");
+                },
+                success: function(){
+                     $('#admission').hide();
+//                    $("#page_4_49").hide();
+//                    $("#uib_page_1").show();
+                    $("#admission_data").show();
+                    dataTable.ajax.reload();
+                    
+                },
+                error: function(){
+                    
+                },
+                complete: function(){
+                    
+                }
+                
+            });
+            
+        });
+         
+         /* Link to view all students */
+//         $("#view_students").on("click", function(e){
+//             e.preventDefault();
+////             $(this).hide();
+//             $("#page_4_49").hide();
+//             $("#uib_page_1").show();
+////             activate_subpage("#uib_page_1");
+////             window.location.href = "#uib_page_1";
+//             
+////             $('html, body').animate({
+////                 scrollTop: ($('#uib_page_1').offset().top)
+////             }, 1000);
+//       });
+
+
+
+         $("#admission_update").on("submit", function(evt){
+            evt.preventDefault(); 
+//             $("#admission_edit").hide();
+//            var form_data = $(this).serialize();
+            var form_data1 = new FormData(this);
+           // var form_url1 = $(this).attr("action");
+            //var form_method1 = $(this).attr("method").toUpperCase();
+            
+            
+//             $( "#message_save" ).text( "loading...." ).show();
+             
+             
+             $.ajax({
+                url: "http://127.0.0.1/schapp/main/classes/edit_processing_admission.php",
+                type: "post",
+                data: form_data1, 
+                processData: false,
+                contentType: false,
+                cache: false,
+                 beforeSend: function(){
+                   $("#admission_edit").replaceWith('<button class="btn widget uib_w_10 d-margins btn-sm btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" disabled>updating.....</button>');   
+                 },
+                 success: function(){
+                     $('#admission_update').hide();
+                    $("#admission_data").show();
+                    dataTable.ajax.reload();
+                    
+                },
+                error: function(){
+                    
+                },
+                complete: function(){
+                    
+                }
+             });
+            
+            
+            
+         });
+         
+           
+         $(document).on('click', '.update', function(){
+             var user_idE = $(this).attr("id");
+             $.ajax({
+                 url: "http://127.0.0.1/schapp/main/classes/fetch_single_admission.php",
+                 method: "POST",
+                 data: {user_idE: user_idE},
+                 dataType: "json",
+                 success: function(data){
+//                     $( "div#message_gender" ).text( "Please let's know your gender" ).show().fadeOut( 1000 );
+                     $("#admission_data").hide();
+                     $("#admission_update").show();
+                     $("#firstname").val(data.firstname);
+                     $("#lastname").val(data.lastname);
+                     $("#phone").val(data.phone);
+                     $("#user_idE").val(user_idE);
+                     $("#user_uploaded_image").html(data.image);
+//                     $("#operationE").val('Edit');
+                     
+                 }
+             });
+         });

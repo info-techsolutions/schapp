@@ -1,0 +1,47 @@
+<?php
+require_once '../inc/function.php';
+require_once '../inc/config.php';
+include_once '../classes/class.upload.php';
+include_once '../inc/errorcode.php';
+
+if ($_POST) {
+
+    $name = strip_tags($_POST['name']);
+    $daysOpened = strip_tags($_POST['days_opened']);
+
+
+// collect forma data
+    extract($_POST);
+
+// basic basic validation
+    if ($name == '') {
+        $error[] = 'Your term name is neccessary.';
+    }
+
+    if (!isset($error)) {
+        try {
+
+            $stmt = $db->prepare('INSERT INTO z_tb_term(name, days_opened) VALUES (:name, :days_opened)');
+            $result = $stmt->execute(array(
+                ':name' => $name,
+                ':days_opened' => $daysOpened
+                ));
+            if ($result) {
+                ?>
+                <span class="flow-text">You have successfully added <?php echo $name ?> <a href="show_term.php" class="ui small primary button" style="color: #ffffff; ">continue</a></span>
+
+                <?php
+            } else {
+                // error occurred
+                ?>
+                <span class="red flow-text">Error adding term </span>
+
+                <?php
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+}

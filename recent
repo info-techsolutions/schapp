@@ -1,0 +1,24 @@
+Wednesday March 22, 2017. 12:20pm
+pages/menu.php
+public/feestatus.php
+assets/js/feestatus.js
+classes/feestatus.php
+
+Saturday April 8th 2017					Documented: No;  Added-Online : No
+pages/menu.php
+
+Monday April 10th 2017				Documented: No;  Added-Online : No
+pages/menu.php
+public/run_report.php
+Added reportico Folder
+
+Wednesday April 12th 2017				Documented: No;  Added-Online : No
+Added assets/js/dataTables.responsive.min.js
+Added assets/js/responsive.semanticui.min.js
+pages/footer.php
+
+Friday April 15th 2017				Documented: No;  Added-Online : No
+public/import_scores.php
+public/export_scores.php
+classes/import_scores.php
+assests/js/import_scores.js

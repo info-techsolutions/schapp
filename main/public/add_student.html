@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=0, maximum-scale=1.0">
+
+        <title><?php if(isset($myTitle)) echo $myTitle; ?></title>
+        <!--<link rel="shortcut icon" href="/favicon.png">-->
+        <link rel="stylesheet" href="../assets/css/semantic.min.css"/>
+    </head>
+<body>
+    <div class="ui bottom attached segment pushable">
+        <div class="ui visible inverted left vertical sidebar menu">
+            <a class="item" href="index1.php">
+                <i class="home icon"></i>
+                Home
+            </a>
+            <div class="item">
+                <div class="header">Student</div>
+                <div class="menu">
+
+                    <a class="item" href="add_student.php">
+                        <i class="add icon"></i>
+                        Add Student
+                    </a>
+
+                    <a class="item" href="show_student.php">
+                        <i class="opencart icon"></i>
+                        Show Student
+                    </a>
+
+                </div>
+            </div>
+            <div class="item">
+                <div class="header">Subject</div>
+                <div class="menu">
+
+                    <a class="item" href="add_subject.php">
+                         <i class="add icon"></i>
+                        Add Subject
+                    </a>
+
+                    <a class="item" href="show_subject.php">
+                         <i class="opencart icon"></i>
+                        Show Subject
+                    </a>
+
+                </div>
+            </div>
+            <div class="item">
+                <div class="header">Arm</div>
+                <div class="menu">
+
+                    <a class="item" href="add_arm.php">
+                         <i class="add icon"></i>
+                        Add arm
+                    </a>
+
+                    <a class="item" href="show_arm.php">
+                         <i class="opencart icon"></i>
+                        Show arm
+                    </a>
+
+                </div>
+            </div>
+            <div class="item">
+                <div class="header">Terms</div>
+                <div class="menu">
+
+                    <a class="item" href="add_term.php">
+                         <i class="add icon"></i>
+                        Add terms
+                    </a>
+
+                    <a class="item" href="show_term.php">
+                         <i class="opencart icon"></i>
+                        Show terms
+                    </a>
+
+                </div>
+            </div>
+     <div class="item">
+                <div class="header">Class Name</div>
+                <div class="menu">
+
+                    <a class="item" href="add_class.php">
+                         <i class="add icon"></i>
+                        Add class(primary 1, SSS1)
+                    </a>
+
+                    <a class="item" href="show_term.php">
+                         <i class="opencart icon"></i>
+                        Show terms
+                    </a>
+
+                </div>
+            </div>
+     <div class="item">
+                <div class="header">Class</div>
+                <div class="menu">
+
+                    <a class="item" href="add_classtype.php">
+                         <i class="add icon"></i>
+                        Add class type
+                    </a>
+
+                    <a class="item" href="show_classtype.php">
+                         <i class="opencart icon"></i>
+                        Show class
+                    </a>
+
+                </div>
+            </div>
+     
+     <div class="item">
+                <div class="header">Session</div>
+                <div class="menu">
+
+                    <a class="item" href="add_session.php">
+                         <i class="add icon"></i>
+                        Add session
+                    </a>
+
+                    <a class="item" href="show_session.php">
+                         <i class="opencart icon"></i>
+                        Show session
+                    </a>
+
+                </div>
+            </div>
+     <div class="item">
+                <div class="header">Grade Setup</div>
+                <div class="menu">
+
+                    <a class="item" href="add_grade_setup.php">
+                         <i class="add icon"></i>
+                        Setup Grade
+                    </a>
+
+                    <a class="item" href="show_gradesetup.php">
+                         <i class="opencart icon"></i>
+                        Show Grade Setup
+                    </a>
+
+                </div>
+            </div>
+            <a class="item">
+                <i class="calendar icon"></i>
+                History
+            </a>
+        </div>
+
+        <div class="pusher">
+            <div class="ui basic segment">
+                    <div class="ui main text container">
+                        <h3 class="ui header">Add Student</h3>
+                        <div class="ui equal width form">
+                            <div class="ui message" style="display: none;"></div>
+                            <form id="student-form" method="post">
+                            <div class="fields">
+                                <div class="field">
+                                    <label>Admission Number</label>
+                                    <input type="text" name="person_number" id="person_number" placeholder="Admission Number">
+                                </div>
+                                <div class="field">
+                                    <label>Firstname</label>
+                                    <input type="text" name="firstname" id="firstname" placeholder="Firstname">
+                                </div>
+                            </div>
+                            <div class="fields">
+                                <div class="field">
+                                    <label>Lastname</label>
+                                    <input type="text" name="lastname" id="lastname" placeholder="lastname">
+                                </div>
+                                <div class="field">
+                                    <label>Phone Number</label>
+                                    <input type="text" name="phone" id="phone" placeholder="phone">
+                                </div>
+                               
+                            </div>
+                            <div class="fields">
+                                <div class="field">
+                                    <label>Choose a gender:</label>
+                                    <select name="gender" id="gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+
+                                <div class="field">
+                                    <label>Address</label>
+                                    <textarea rows="2" name="address" id="address"></textarea>
+                                </div>
+
+                                <div class="field">
+                                    <label>Browse and upload your picture</label>
+                                    <input type="file" name="image">
+                                </div>
+                            </div>
+                            
+                            <div class="fields">
+                                <div><button class="ui fluid large blue submit button" type="submit">Add student</button></div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php include_once'../pages/footer.php'; ?>
+    <script src="../assets/js/signup.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.ui.checkbox').checkbox();
+            $('select.dropdown').dropdown();
+        });
+    </script>
+</body>
+</html>

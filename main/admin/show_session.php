@@ -54,7 +54,9 @@ if (isset($_GET['delsession'])) {
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php
+                           
+          <?php
+    
                             try {
                                 include_once '../inc/config.php';
                                 $r = 1;
